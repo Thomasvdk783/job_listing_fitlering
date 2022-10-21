@@ -1,0 +1,131 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: hsl(180deg, 52%, 96%);
+  font-family: "League Spartan", sans-serif;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.badge-new {
+  background-color: hsl(180deg, 29%, 50%);
+  color: #fff;
+  border-radius: 15px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.badge-featured {
+  background-color: #000;
+  color: #fff;
+  border-radius: 15px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.li-key-words {
+  padding: 5px;
+  border-radius: 3px;
+  background-color: hsl(180deg, 31%, 95%);
+  color: hsl(180deg, 29%, 50%);
+  cursor: pointer;
+}
+
+.main-header {
+  width: auto;
+  height: 150px;
+  background-image: url("../../images/bg-header-desktop.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: hsl(180deg, 29%, 50%);
+  margin-bottom: 50px;
+}
+
+.main-container {
+  max-width: 1440px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.job-container {
+  max-width: 900px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+.job-container .container-job-offer {
+  background-color: white;
+  width: 100%;
+  padding: 25px 40px 25px 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0px 5px 15px 1px hsla(180deg, 29%, 50%, 0.322);
+}
+
+.right-part-job {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  align-items: center;
+}
+.right-part-job .infos-job {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.right-part-job .infos-job .container-company {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+.right-part-job .infos-job .container-company .title-job {
+  color: hsl(180deg, 29%, 50%);
+}
+.right-part-job .infos-job .container-company .badges {
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  gap: 6px;
+}
+.right-part-job .infos-job .container-job {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.right-part-job .infos-job .container-job .ul-infos-job {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  color: hsl(180deg, 8%, 52%);
+  list-style-type: none;
+}
+
+.left-part-job {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  gap: 10px;
+}
+
+.attribution {
+  text-align: center;
+  margin-top: 60px;
+}
+
+/*# sourceMappingURL=style.css.map */

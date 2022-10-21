@@ -1,0 +1,28 @@
+// badges
+
+// NEW
+.badge-new{
+    background-color: hsl(180, 29%, 50%);
+    color: #fff;
+    border-radius: 15px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+// FEATURED
+.badge-featured{
+    background-color: #000;
+    color: #fff;
+    border-radius: 15px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+// KeyWords
+.li-key-words{
+    padding: 5px;
+    border-radius: 3px;
+    background-color: hsl(180, 31%, 95%);
+    color: hsl(180, 29%, 50%);
+    cursor: pointer;
+}
