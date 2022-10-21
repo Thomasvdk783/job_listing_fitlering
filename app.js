@@ -4,7 +4,7 @@ const data = async () => {
     const responseJSON = await fetch('./data.json')
     const responseJS = await responseJSON.json()
     const jobList = responseJS
-    console.log(jobList)
+    
 
     const showJobList = document.getElementById('container-job-list')
 
@@ -21,7 +21,7 @@ const data = async () => {
               <h3 class="title-job">
                 ${job.company}
               </h3>
-              <div class="badges">
+              <div class="badges" id="container-badges">
                 <p class="badge-new">NEW!</p>
                 <p class="badge-featured">FEATURED</p>
               </div>
@@ -46,10 +46,21 @@ const data = async () => {
         </ul>
       </section>
         `
-        
-        if(job.new === true){
+        const badgeNew = document.querySelectorAll('.badge-new')
+        badgeNew.forEach((badge) => {
+            console.log(badge)
+            if(job.new === true){
+                badge.style.display = 'block'
+            }
+        })
 
-        }
+        const badgeFeatured = document.querySelectorAll('.badge-featured')
+        badgeFeatured.forEach((badge) =>{
+            if(job.featured === true){
+                badge.style.display = 'block'
+            }
+        })
+        
         showJobList.innerHTML += jobOffer
     })
 }
