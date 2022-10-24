@@ -22,8 +22,7 @@ const data = async () => {
                 ${job.company}
               </h3>
               <div class="badges" id="container-badges">
-                <p class="badge-new">NEW!</p>
-                <p class="badge-featured">FEATURED</p>
+
               </div>
             </div>
             <div class="container-job">
@@ -46,20 +45,24 @@ const data = async () => {
         </ul>
       </section>
         `
-        const badgeNew = document.querySelectorAll('.badge-new')
-        badgeNew.forEach((badge) => {
-            console.log(badge)
-            if(job.new === true){
-                badge.style.display = 'block'
+        const boxJob = document.querySelectorAll('.container-job-offer')
+        boxJob.forEach((itemBox) => {
+            if(job.featured === true){
+                itemBox.classList.add('border-new-job')
             }
         })
 
-        const badgeFeatured = document.querySelectorAll('.badge-featured')
-        badgeFeatured.forEach((badge) =>{
-            if(job.featured === true){
-                badge.style.display = 'block'
+            
+        const containerBadges = document.querySelectorAll('.badges')
+        containerBadges.forEach((item) => {
+            if(job.new === true){
+                const badgeNew = `<p class="">NEW!</p>`
+                const badgeFeatured = `<p class="">FEATURED</p>`
+                let arrBadges = []
+                arrBadges.push(badgeNew, badgeFeatured)
+                item.innerHTML = arrBadges
             }
-        })
+        }) 
         
         showJobList.innerHTML += jobOffer
     })

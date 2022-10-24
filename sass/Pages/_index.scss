@@ -28,6 +28,10 @@
         border-radius: 5px;
         box-shadow: 0px 5px 15px 1px hsla(180, 29%, 50%, 0.322);
     }
+    // class addings dynamically if the job offer is new
+    .border-new-job{
+        border-left: 5px solid hsl(180, 29%, 50%);
+    }
 }
 
 .right-part-job{
