@@ -37,14 +37,26 @@ const data = async () => {
         </div>
   
         <ul class="left-part-job">
-          <li class="li-key-words">Frontend</li>
-          <li class="li-key-words">Senior</li>
-          <li class="li-key-words">HTML</li>
-          <li class="li-key-words">CSS</li>
-          <li class="li-key-words">Javascript</li>
+
         </ul>
       </section>
         `
+
+        showJobList.innerHTML += jobOffer
+
+        const ulKeysWords = document.querySelector('left-part-job')
+
+        const languages = job.languages
+        languages.forEach((itemLanguages) => { 
+            const showItemLanguages = `<li class="li-key-words">${itemLanguages}</li>`
+            console.log(showItemLanguages)
+            // ulKeysWords.innerHTML = showItemLanguages
+        })
+
+        const tools = job.tools
+        tools.forEach((itemTools) => {
+        })
+
         const boxJob = document.querySelectorAll('.container-job-offer')
         boxJob.forEach((itemBox) => {
             if(job.featured === true){
@@ -54,17 +66,46 @@ const data = async () => {
 
             
         const containerBadges = document.querySelectorAll('.badges')
+        let arrBadges = []
         containerBadges.forEach((item) => {
             if(job.new === true){
-                const badgeNew = `<p class="">NEW!</p>`
-                const badgeFeatured = `<p class="">FEATURED</p>`
-                let arrBadges = []
-                arrBadges.push(badgeNew, badgeFeatured)
+                const badgeNew = `<p class="badge-new">NEW!</p>`
+                arrBadges.push(badgeNew)
+                item.innerHTML = arrBadges
+            } else if(job.featured === true){
+                const badgeFeatured = `<p class="badge-featured">FEATURED</p>`
+                arrBadges.push(badgeFeatured)
                 item.innerHTML = arrBadges
             }
+            
         }) 
-        
-        showJobList.innerHTML += jobOffer
+    })
+
+    // filter search 
+    let arrKeyWordsFilter = []
+
+    // filter box
+    const filterBox = document.getElementById('ul-filter-top')
+    console.log(filterBox)
+
+    const clearBtn = document.getElementById('clear-btn')
+    const containerFilter = document.getElementById('container-filter')
+    const liKeyWords = document.querySelectorAll('.li-key-words')
+    const liKeyWordsFilter = document.querySelectorAll('.li-key-words-filter-section')
+
+    liKeyWordsFilter.forEach((key) => {
+        key.addEventListener('click', () => {
+            key.style.display = 'none'
+        })
+    })
+
+    clearBtn.addEventListener('click', () =>{
+        containerFilter.style.display = 'none'
     })
 }
 data()
+
+/* <li class="li-key-words">${job.role}</li>
+<li class="li-key-words">${job.level}</li>
+<li class="li-key-words">${job.languages}</li>
+<li class="li-key-words">${job.tools}</li> */
