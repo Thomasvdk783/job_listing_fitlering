@@ -7,8 +7,25 @@ const data = async () => {
     
 
     const showJobList = document.getElementById('container-job-list')
+    
 
     jobList.forEach((job) => {
+
+        let arrLanguages = []
+        let arrTools = []
+
+        const languages = job.languages
+        languages.forEach((itemLanguages) => { 
+            const showItemLanguages = `<li class="li-key-words">${itemLanguages}</li>`
+            arrLanguages.push(showItemLanguages)
+        })
+
+
+        const tools = job.tools
+        tools.forEach((itemTools) => {
+            const showItemLanguages = `<li class="li-key-words">${itemTools}</li>`
+            arrTools.push(showItemLanguages)
+        })
 
         const jobOffer = `
         <section class="container-job-offer" id="${job.id}" >
@@ -37,25 +54,16 @@ const data = async () => {
         </div>
   
         <ul class="left-part-job">
-
+            <li class="li-key-words">${job.role}</li>
+            <li class="li-key-words">${job.level}</li>
+            ${arrLanguages}
+            ${arrTools}
         </ul>
       </section>
         `
 
         showJobList.innerHTML += jobOffer
 
-        const ulKeysWords = document.querySelector('left-part-job')
-
-        const languages = job.languages
-        languages.forEach((itemLanguages) => { 
-            const showItemLanguages = `<li class="li-key-words">${itemLanguages}</li>`
-            console.log(showItemLanguages)
-            // ulKeysWords.innerHTML = showItemLanguages
-        })
-
-        const tools = job.tools
-        tools.forEach((itemTools) => {
-        })
 
         const boxJob = document.querySelectorAll('.container-job-offer')
         boxJob.forEach((itemBox) => {
@@ -66,22 +74,26 @@ const data = async () => {
 
             
         const containerBadges = document.querySelectorAll('.badges')
-        let arrBadges = []
+        let arrBadgesNew = []
         containerBadges.forEach((item) => {
-            if(job.new === true){
+            if(job.new === true ){
                 const badgeNew = `<p class="badge-new">NEW!</p>`
-                arrBadges.push(badgeNew)
-                item.innerHTML = arrBadges
-            } else if(job.featured === true){
-                const badgeFeatured = `<p class="badge-featured">FEATURED</p>`
-                arrBadges.push(badgeFeatured)
-                item.innerHTML = arrBadges
-            }
-            
+                arrBadgesNew.push(badgeNew)
+                item.innerHTML = arrBadgesNew
+            }  
         }) 
+        let arrBadgesFeatured = []
+        containerBadges.forEach((item) => {
+            if(job.featured === true){
+                const badgeFeatured = `<p class="badge-featured">FEATURED</p>`
+                arrBadgesFeatured.push(badgeFeatured)
+                item.innerHTML = arrBadgesFeatured
+            }
+        })
     })
 
     // filter search 
+    const ulKeysWords = document.querySelector('left-part-job')
     let arrKeyWordsFilter = []
 
     // filter box
@@ -105,7 +117,3 @@ const data = async () => {
 }
 data()
 
-/* <li class="li-key-words">${job.role}</li>
-<li class="li-key-words">${job.level}</li>
-<li class="li-key-words">${job.languages}</li>
-<li class="li-key-words">${job.tools}</li> */
