@@ -56,8 +56,8 @@ const data = async () => {
         <ul class="left-part-job">
             <li class="li-key-words">${job.role}</li>
             <li class="li-key-words">${job.level}</li>
-            ${arrLanguages}
-            ${arrTools}
+            ${arrLanguages.join(' ')}
+            ${arrTools.join(' ')}
         </ul>
       </section>
         `
@@ -92,17 +92,37 @@ const data = async () => {
         })
     })
 
-    // filter search 
-    const ulKeysWords = document.querySelector('left-part-job')
-    let arrKeyWordsFilter = []
-
-    // filter box
-    const filterBox = document.getElementById('ul-filter-top')
-    console.log(filterBox)
-
-    const clearBtn = document.getElementById('clear-btn')
-    const containerFilter = document.getElementById('container-filter')
+    // filter search Box
+    const boxFilter = document.querySelector('.box-filter')
+    const ulBox = document.getElementById('ul-filter-top')
     const liKeyWords = document.querySelectorAll('.li-key-words')
+    const clearBtn = document.getElementById('clear-btn')
+    let arrKeyWordsFilter = []
+    
+    console.log(ulBox)
+    liKeyWords.forEach((itemKey) => {
+        itemKey.addEventListener('click', () => {
+            console.log(itemKey.textContent)
+            const showItemKey = `
+            <li class="li-key-words-filter-section">${itemKey.textContent}<i class="fa-sharp fa-solid fa-xmark"></i></li>
+            `
+            arrKeyWordsFilter.push(showItemKey)
+            boxFilter.style.display = 'block'
+
+            ulBox.innerHTML = arrKeyWordsFilter.join(' ')
+        })
+    })
+
+    
+
+
+
+
+    
+
+    
+
+    
     const liKeyWordsFilter = document.querySelectorAll('.li-key-words-filter-section')
 
     liKeyWordsFilter.forEach((key) => {
@@ -112,7 +132,7 @@ const data = async () => {
     })
 
     clearBtn.addEventListener('click', () =>{
-        containerFilter.style.display = 'none'
+        boxFilter.style.display = 'none'
     })
 }
 data()
